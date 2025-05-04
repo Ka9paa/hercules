@@ -2,9 +2,9 @@
 
 function Show-Menu {
     Clear-Host
-    Write-Host "==============================" -ForegroundColor Cyan
-    Write-Host "     Hercules Power Tool"
-    Write-Host "==============================" -ForegroundColor Cyan
+    Write-Host "===============================" -ForegroundColor Cyan
+    Write-Host "          Hercules Power Tool"
+    Write-Host "===============================" -ForegroundColor Cyan
     Write-Host "1. Debloat Windows"
     Write-Host "2. Install Common Software"
     Write-Host "3. Apply Performance Optimizations"
@@ -17,7 +17,7 @@ function Show-Menu {
 
 function Debloat-Windows {
     Write-Host "`nStarting Windows Debloat..." -ForegroundColor Yellow
-    # Basic Debloat Example – you can expand this
+    # Debloat Example
     Get-AppxPackage *xbox* | Remove-AppxPackage
     Get-AppxPackage *bing* | Remove-AppxPackage
     Write-Host "Debloat Complete.`n" -ForegroundColor Green
@@ -60,8 +60,6 @@ function Apply-RegistryTweaks {
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name "DisableAntiSpyware" -Value 1
     # Disable Windows Defender Antivirus
     Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender" -Name "DisableAntiVirus" -Value 1
-    # Disable Windows Defender Real-Time Protection
-    Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection" -Name "DisableRealtimeMonitoring" -Value 1
     Write-Host "Registry Tweaks Applied.`n" -ForegroundColor Green
     Pause
 }
@@ -103,7 +101,6 @@ function Remove-Bloatware {
         "Microsoft.StorePurchaseApp",
         "Microsoft.XboxApp",
         "Microsoft.XboxGameOverlay",
-        "Microsoft.XboxGamingOverlay",
         "Microsoft.XboxIdentityProvider",
         "Microsoft.XboxSpeechToTextOverlay",
         "Microsoft.YourPhone",
